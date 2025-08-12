@@ -18,4 +18,8 @@ void main() {
     expect(add('1\n2,3'), equals(6));
   });
 
+  test('Custom delimiter specified', () {
+    expect(add('//;\n1;2'), equals(3));
+  });
+
 }
