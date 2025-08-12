@@ -22,4 +22,14 @@ void main() {
     expect(add('//;\n1;2'), equals(3));
   });
 
+  test('Negative numbers throw exception (single)', () {
+    expect(() => add('1,-2'),
+        throwsA(predicate((e) => e.toString().contains('negative numbers not allowed -2'))));
+  });
+
+  test('Negative numbers throw exception (multiple)', () {
+    expect(() => add('-1,-2,3'),
+        throwsA(predicate((e) => e.toString().contains('negative numbers not allowed -1,-2'))));
+  });
+
 }
