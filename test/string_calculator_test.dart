@@ -10,4 +10,8 @@ void main() {
     expect(add('1,5'), equals(6));
   });
 
+  test('Multiple numbers return sum', () {
+    expect(add('1,2,3,4'), equals(10));
+  });
+
 }
