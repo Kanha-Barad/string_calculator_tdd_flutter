@@ -2,6 +2,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:string_calculator_tdd/string_calculator.dart';
 
 void main() {
+  test('Empty string returns 0', () {
+    expect(add(''), equals(0));
+  });
+
   test('Single number returns value', () {
     expect(add('1'), equals(1));
   });
@@ -23,13 +27,18 @@ void main() {
   });
 
   test('Negative numbers throw exception (single)', () {
-    expect(() => add('1,-2'),
-        throwsA(predicate((e) => e.toString().contains('negative numbers not allowed -2'))));
+    expect(
+          () => add('1,-2'),
+      throwsA(predicate((e) =>
+          e.toString().contains('negative numbers not allowed -2'))),
+    );
   });
 
   test('Negative numbers throw exception (multiple)', () {
-    expect(() => add('-1,-2,3'),
-        throwsA(predicate((e) => e.toString().contains('negative numbers not allowed -1,-2'))));
+    expect(
+          () => add('-1,-2,3'),
+      throwsA(predicate((e) =>
+          e.toString().contains('negative numbers not allowed -1,-2'))),
+    );
   });
-
 }
