@@ -6,4 +6,8 @@ void main() {
     expect(add('1'), equals(1));
   });
 
+  test('Two numbers return sum', () {
+    expect(add('1,5'), equals(6));
+  });
+
 }
