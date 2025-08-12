@@ -17,5 +17,10 @@ int add(String numbers) {
       .map((p) => int.parse(p.trim()))
       .toList();
 
+  final negatives = nums.where((n) => n < 0).toList();
+  if (negatives.isNotEmpty) {
+    throw Exception('negative numbers not allowed ${negatives.join(',')}');
+  }
+
   return nums.isEmpty ? 0 : nums.reduce((a, b) => a + b);
 }
