@@ -1,4 +1,6 @@
 int add(String numbers) {
   if (numbers.isEmpty) return 0;
-  return int.parse(numbers.trim());
+  final parts = numbers.split(',');
+  final nums = parts.map((p) => int.parse(p.trim())).toList();
+  return nums.reduce((a, b) => a + b);
 }
